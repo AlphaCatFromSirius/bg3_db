@@ -14,12 +14,13 @@ response = requests.get(url=URL, headers=headers)
 soup = BeautifulSoup(response.text, features="lxml")
 
 table_rows = soup.find('table').find_all('tr')
-counter = 0
+l = []
 
-for row in table_rows:
-    print(row)
-    counter += 1
-    if counter == 1:
-        continue
-    elif counter == 5:
-        break
+with open('weapon.csv', 'w', encoding='utf-8') as csv_file:
+    writer = csv.writer(csv_file, delimiter=',')
+    for row in table_rows:
+        l.append(row.get_text().strip().split('\n'))
+
+    for l2 in l:
+        map(str.strip, l2)
+        writer.writerow(l2)
