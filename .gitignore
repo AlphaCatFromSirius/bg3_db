@@ -6,6 +6,12 @@ __pycache__/
 # C extensions
 *.so
 
+#Alembic
+alembic/versions/
+alembic/README
+
+*.csv
+
 # Distribution / packaging
 .Python
 build/

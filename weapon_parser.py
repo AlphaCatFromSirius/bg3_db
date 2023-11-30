@@ -17,7 +17,7 @@ table_rows = soup.find('table').find_all('tr')
 l = []
 
 with open('weapon.csv', 'w', encoding='utf-8') as csv_file:
-    writer = csv.writer(csv_file, delimiter=',')
+    writer = csv.writer(csv_file, delimiter=';')
     for row in table_rows:
         l.append(row.get_text().strip().split('\n'))
 
